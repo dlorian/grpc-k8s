@@ -1,0 +1,23 @@
+{
+  "name": "grpc_k8s",
+  "version": "0.0.1",
+  "description": "Run GRPC together with Kubernetes",
+  "scripts": {
+    "check": "minikube service api-service --url",
+    "build:client": "docker build -t local/api -f Dockerfile.api .",
+    "build:server": "docker build -t local/gcd -f Dockerfile.gcd .",
+    "kube:createClient": "kubectl create -f api.yaml",
+    "kube:createServer": "kubectl create -f gcd.yaml"
+  },
+  "keywords": [
+    "GRPC",
+    "Kubernetes",
+    "Docker"
+  ],
+  "author": "dlorian",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "grpc": "^1.15.1"
+  }
+}
